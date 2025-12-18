@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        :root {
+            --banner-yellow: #fcda33;
+            --banner-text: black;
+            --page-pink: #f997c0;
+            --box-yellow: #fcda33;
+        }
+
+        html, body {
+            height: 100%;
+            min-height: 100vh;
+            width: 100%;
+            margin: 0;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            background-color: var(--page-pink);
+            color: #040303;
+        }
+
+        .center-page {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--box);
+            color: black;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 25px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-family: inherit;
+            z-index: 2000;
+            transition: all 0.3s ease;
+        }
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background-color: #f997c0;
+        }
+
+        /* Large banner fixed at top */
+        .big-yellow-banner {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(180deg, var(--banner-yellow) 0%, #fbdc4a 100%);
+            color: var(--banner-text);
+            text-align: center;
+            padding: 22px 16px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            z-index: 1500;
+        }
+
+        h1 { margin: 8px 0 0; font-size: 2rem; }
+        h2 { margin: 4px 0 0; font-weight: 500; color: black; font-size: 2rem; }
+
+        .banana-box,
+        .video-box {
+            width: 100%;
+            max-width: 720px;
+            background-color: var(--box-yellow);
+            color: var(--banner-text);
+            padding: 16px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            font-size: 1rem;
+            font-weight: 600;
+            box-sizing: border-box;
+        }
+
+        /* Responsive video wrapper */
+        .video-wrapper {
+            width: 100%;
+            max-width: 720px;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+        }
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* Tableau placeholder container */
+        .tableauPlaceholder {
+            width: 100%;
+            max-width: 720px;
+            box-sizing: border-box;
+            margin-top: 8px;
+        }
+
+        /* SIDE FACTS - Text on top, photo underneath */
+        .facts-side {
+            position: fixed;
+            top: 65%;
+            transform: translateY(-50%);
+            z-index: 500;
+        }
+
+        .facts-left {
+            left: 20px;
+            width: 280px;
+        }
+
+        .facts-right {
+            right: 20px;
+            width: 280px;
+        }
+
+        .fact-box-side {
+            background-color: var(--box-yellow);
+            color: black;
+            padding: 16px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .fact-title-side {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .fact-list-side {
+            margin: 0 0 12px 0;
+            padding-left: 0;
+            list-style: none;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .fact-list-side li {
+            padding: 4px 0;
+        }
+
+        .fact-list-side li:before {
+            content: "🐰 ";
+            margin-right: 6px;
+        }
+
+        /* Photo underneath text */
+        .bunny-photo-bottom {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Hide side facts on mobile */
+        @media (max-width: 768px) {
+            .facts-side { display: none; }
+        }
+
+        @media (max-width: 520px) {
+            .big-yellow-banner { font-size: 1.2rem; padding: 14px 12px; }
+            .center-page { padding-top: 18px; }
+        }
+    </style>
+<body>
+    <a href="/" class="home-button" aria-label="Home">Home</a>
+    <!-- Big yellow banner -->
+    <!-- Big yellow banner -->
+    <div class="big-yellow-banner">
+        Everything Bunnies!
+    </div>
+
+    <!-- Main content -->
+    <main class="center-page">
+        <h2>Everything you never thought you wanted to know about bunnies</h2>
+
+        <div class="video-box">
+            Here's a cute video about bunnies for your viewing pleasure!
+        </div>
+
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/y6Ym6ycjvrM?si=OqWPQOF1LLvKMyOa"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="banana-box">
+            Bananas are a bunnies favorite food! Here is a graphic about where bananas come from!
+        </div>
+
+        <!-- Tableau visualization -->
+        <div class="tableauPlaceholder" id="viz1765918910566" style="position: relative; margin-top: 20px;">
+            <noscript>
+                <a href="#">
+                    <img alt="Banana Production"
+                        src="https://public.tableau.com/static/images/72/72RDRQXKQ/1.png"
+                        style="border: none" />
+                </a>
+            </noscript>
+            <object class="tableauViz" style="display:none;">
+                <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+                <param name="embed_code_version" value="3" />
+                <param name="path" value="shared/72RDRQXKQ" />
+                <param name="toolbar" value="yes" />
+                <param name="static_image"
+                    value="https://public.tableau.com/static/images/72/72RDRQXKQ/1.png" />
+                <param name="animate_transition" value="yes" />
+                <param name="display_static_image" value="yes" />
+                <param name="display_spinner" value="yes" />
+                <param name="display_overlay" value="yes" />
+                <param name="display_count" value="yes" />
+                <param name="language" value="en-US" />
+            </object>
+        </div>
+    </main>
+
+    <!-- LEFT SIDE FACT BOX - TEXT then YOUR PHOTO underneath -->
+    <div class="facts-side facts-left">
+        <div class="fact-box-side">
+            <h3 class="fact-title-side">Bunny Facts</h3>
+            <ul class="fact-list-side">
+                <li>Jump 3 feet high!</li>
+                <li>28 teeth total</li>
+                <li>Ears detect predators</li>
+                <li>Crepuscular (dawn/dusk)</li>
+            </ul>
+            <img src="https://cottontails-rescue.org.uk/wp-content/uploads/2023/09/DSC04149-fullsize-edited.jpg" 
+                 alt="Cute bunny" class="bunny-photo-bottom">
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE FACT BOX - TEXT then YOUR PHOTO underneath -->
+    <div class="facts-side facts-right">
+        <div class="fact-box-side">
+            <h3 class="fact-title-side">Fun Facts</h3>
+            <ul class="fact-list-side">
+                <li>Baby = kit</li>
+                <li>Thump to warn</li>
+                <li>360° vision</li>
+                <li>Love hay & veggies</li>
+            </ul>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-_x8gKTJmaxBW90y-4iDuF3UoaIh-SHwcKg&s" 
+                 alt="Adorable bunny" class="bunny-photo-bottom">
+        </div>
+    </div>
+
+    <!-- Tableau script (unchanged) -->
+    <script type="text/javascript">
+        (function () {
+            function setupViz() {
+                var divElement = document.getElementById('viz1765918910566');
+                if (!divElement) return;
+
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                if (!vizElement) {
+                    vizElement = document.createElement('div');
+                    vizElement.className = 'tableauViz';
+                    divElement.appendChild(vizElement);
+                }
+
+                divElement.style.display = 'flex';
+                divElement.style.flexDirection = 'column';
+                divElement.style.justifyContent = 'center';
+                divElement.style.alignItems = 'center';
+                divElement.style.textAlign = 'center';
+                divElement.style.width = '100%';
+
+                vizElement.style.display = 'block';
+                vizElement.style.margin = '0 auto';
+                vizElement.style.boxSizing = 'border-box';
+
+                function resizeViz() {
+                    var containerWidth = divElement.clientWidth || divElement.offsetWidth || window.innerWidth;
+                    var targetWidth = Math.min(containerWidth, 720);
+
+                    if (containerWidth <= 500) {
+                        vizElement.style.width = '100%';
+                        vizElement.style.maxWidth = '100%';
+                        vizElement.style.height = '560px';
+                    } else {
+                        vizElement.style.width = targetWidth + 'px';
+                        vizElement.style.maxWidth = '720px';
+                        vizElement.style.minWidth = '420px';
+                        var h = Math.round(targetWidth * 0.75);
+                        if (h < 420) h = 420;
+                        if (h > 1000) h = 1000;
+                        vizElement.style.height = h + 'px';
+                    }
+                }
+
+                resizeViz();
+                window.addEventListener('resize', resizeViz);
+
+                if (!document.querySelector('script[src="https://public.tableau.com/javascripts/api/viz_v1.js"]')) {
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    if (vizElement.parentNode) {
+                        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                    } else {
+                        divElement.appendChild(scriptElement);
+                    }
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupViz);
+            } else {
+                setupViz();
+            }
+        })();
+    </script>
+</body>
+</html>
