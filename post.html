@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bunny Catcher</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #ccefff;
+    margin: 0;
+  }
+  h1 { color: #ff6f61; }
+  #gameContainer {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: 20px auto;
+    background: #a3d9a5;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 2px solid #333;
+  }
+  #bunny {
+    position: absolute;
+    bottom: 0;
+    left: 275px;
+    font-size: 50px;
+    user-select: none;
+  }
+  .carrot {
+    position: absolute;
+    font-size: 40px;
+    user-select: none;
+  }
+  #score { font-size: 20px; margin: 10px; }
+  /* Back link styling */
+  .back-link {
+    display: inline-block;
+    margin: 12px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">← Back to home</a>
+<h1>Bunny Catcher</h1>
+<div id="gameContainer">
+  <div id="bunny">🐰</div>
+</div>
+<p id="score">Score: 0</p>
+<p>Use LEFT and RIGHT arrow keys to move the bunny and catch the falling carrots!</p>
+
+<script>
+const gameContainer = document.getElementById('gameContainer');
+const bunny = document.getElementById('bunny');
+const scoreEl = document.getElementById('score');
+
+let bunnyX = 275;
+let score = 0;
+
+// Move bunny
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') {
+    bunnyX = Math.max(0, bunnyX - 20);
+  } else if (e.key === 'ArrowRight') {
+    bunnyX = Math.min(550, bunnyX + 20);
+  }
+  bunny.style.left = bunnyX + 'px';
+});
+
+// Create a carrot
+function createCarrot() {
+  const carrot = document.createElement('div');
+  carrot.classList.add('carrot');
+  carrot.innerText = '🥕';
+  carrot.style.left = Math.floor(Math.random() * 560) + 'px';
+  carrot.style.top = '0px';
+  gameContainer.appendChild(carrot);
+
+  let fallInterval = setInterval(() => {
+    let carrotY = parseInt(carrot.style.top);
+    carrotY += 5;
+    carrot.style.top = carrotY + 'px';
+
+    const bunnyRect = bunny.getBoundingClientRect();
+    const carrotRect = carrot.getBoundingClientRect();
+
+    // Check if bunny catches carrot
+    const horizontalOverlap = carrotRect.left < bunnyRect.right && carrotRect.right > bunnyRect.left;
+    const verticalOverlap = carrotRect.bottom > bunnyRect.top && carrotRect.top < bunnyRect.bottom;
+
+    if (horizontalOverlap && verticalOverlap) {
+      score++;
+      scoreEl.textContent = 'Score: ' + score;
+      clearInterval(fallInterval);
+      gameContainer.removeChild(carrot);
+      return;
+    }
+
+    // Remove carrot if it falls off screen
+    if (carrotY > 400) {
+      clearInterval(fallInterval);
+      gameContainer.removeChild(carrot);
+    }
+  }, 30);
+}
+
+// Spawn carrots every 1 second
+setInterval(createCarrot, 1000);
+</script>
+
+</body>
+</html>

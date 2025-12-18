@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Annabelle Moden — Resume</title>
+
+
+        <!-- Back to Home CSS -->
+        <style>
+            .back-home {
+                display: inline-block;
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 14px;
+                padding: 8px 16px;
+                border: 1px solid var(--accent);
+                border-radius: var(--radius);
+                background: rgba(14,165,164,0.05);
+                transition: all 0.2s ease;
+                margin-bottom: 20px;
+            }
+            .back-home:hover {
+                background: var(--accent);
+                color: white;
+            }
+        </style>
+
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lora:wght@600&display=swap" rel="stylesheet">
+
+
+        <style>
+            :root{
+                --bg:#f6f7f9;
+                --card:#ffffff;
+                --text:#0f1720;
+                --muted:#6b7280;
+                --accent:#0ea5a4;
+                --line:rgba(15,23,32,0.06);
+                --radius:10px;
+                --maxw:980px;
+            }
+
+
+            html,body{
+                height:100%;
+                margin:0;
+                font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+                color:var(--text);
+                background:linear-gradient(180deg,#f8fafc 0%,var(--bg) 100%);
+                -webkit-font-smoothing:antialiased;
+                -moz-osx-font-smoothing:grayscale;
+            }
+
+
+            .wrap{
+                max-width:var(--maxw);
+                margin:40px auto;
+                padding:28px;
+            }
+
+
+            .card{
+                display:grid;
+                grid-template-columns:1fr 320px;
+                gap:28px;
+            }
+
+
+            @media (max-width:880px){
+                .card{ grid-template-columns:1fr; }
+            }
+
+
+            .panel{
+                background:var(--card);
+                border:1px solid var(--line);
+                border-radius:var(--radius);
+                padding:22px;
+                box-shadow:0 6px 22px rgba(2,6,23,0.04);
+            }
+
+
+            /* Header */
+            .header{
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                gap:16px;
+            }
+
+
+            .name{
+                font-family:Lora,serif;
+                font-size:28px;
+                margin:0 0 4px 0;
+                letter-spacing:0.2px;
+            }
+
+
+            .title{
+                font-weight:600;
+                color:var(--muted);
+                font-size:14px;
+            }
+
+
+            .contact-list{
+                display:flex;
+                flex-wrap:wrap;
+                gap:8px 12px;
+                font-size:13px;
+                color:var(--muted);
+            }
+
+
+            .contact-list a{ color:var(--accent); text-decoration:none; }
+
+
+            /* Main content areas */
+            h2{
+                margin:0 0 12px 0;
+                font-size:16px;
+                color:var(--text);
+                font-weight:600;
+                font-family:Lora,serif;
+            }
+
+
+            .summary p{
+                margin:0;
+                color:var(--muted);
+                line-height:1.6;
+            }
+
+
+            .section{
+                margin-bottom:18px;
+            }
+
+
+            .item{
+                padding:14px;
+                border-radius:8px;
+                border:1px solid var(--line);
+                background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+                margin-bottom:12px;
+            }
+
+
+            .item-header{
+                display:flex;
+                justify-content:space-between;
+                gap:12px;
+                align-items:flex-start;
+                margin-bottom:8px;
+            }
+
+
+            .item-title{
+                font-weight:600;
+                font-size:15px;
+            }
+
+
+            .item-meta{
+                color:var(--muted);
+                font-size:13px;
+                white-space:nowrap;
+            }
+
+
+            ul{ margin:8px 0 0 18px; color:var(--muted); }
+            li{ margin-bottom:6px; }
+
+
+            /* Sidebar */
+            .sidebar .block{
+                margin-bottom:16px;
+            }
+
+
+            .skills-list{
+                display:grid;
+                grid-template-columns:repeat(2, minmax(0,1fr));
+                gap:8px;
+                list-style:none;
+                padding:0;
+                margin:0;
+            }
+
+
+            .skills-list li{
+                font-size:13px;
+                color:var(--muted);
+                padding:6px 8px;
+                border-radius:6px;
+                background:linear-gradient(180deg, rgba(14,165,164,0.06), rgba(14,165,164,0.03));
+            }
+
+
+            .muted{
+                color:var(--muted);
+                font-size:13px;
+            }
+
+
+            .divider{
+                height:1px;
+                background:var(--line);
+                margin:14px 0;
+                border-radius:2px;
+            }
+
+
+            .links a{
+                display:inline-block;
+                color:var(--text);
+                text-decoration:none;
+                margin-right:8px;
+                font-size:13px;
+            }
+
+
+            /* Footer / print-friendly small */
+            @media print{
+                body{ background:transparent; }
+                .wrap{ margin:0; padding:0; max-width:100%; }
+                .card{ box-shadow:none; border:none; }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="#page-bottom" class="scroll-to-bottom">↓</a>
+
+
+        <div class="wrap">
+            <!-- BACK TO HOME BUTTON -->
+            <a href="index.html" class="back-home">← Back to Home</a>
+            
+            <div class="card">
+                <!-- Main column -->
+                <main class="panel" aria-labelledby="profile-heading">
+                    <header class="header">
+                        <div>
+                            <h1 id="profile-heading" class="name">Annabelle Moden</h1>
+                            <div class="title">Customer Service & Education Professional</div>
+                        </div>
+                        <div class="contact-list" aria-hidden="true">
+                            <a href="mailto:annabellemoden@gmail.com">annabellemoden@gmail.com</a>
+                            <span class="muted">360-979-7019</span>
+                        </div>
+                    </header>
+
+
+                    <div class="divider" role="separator" aria-hidden="true"></div>
+
+
+                    <section id="summary" class="section summary" aria-labelledby="summary-heading">
+                        <h2 id="summary-heading">Professional Summary</h2>
+                        <p>
+                            Reliable and energetic professional with experience in customer service, education, and community service. Known for strong organizational skills, punctuality, and a friendly, engaging attitude. Quick to learn new skills, passionate about creating positive environments, and committed to safety and excellence in all responsibilities.
+                        </p>
+                    </section>
+
+
+                    <section id="experience" class="section" aria-labelledby="experience-heading">
+                        <h2 id="experience-heading">Professional Experience</h2>
+
+
+                        <article class="item" aria-labelledby="job1">
+                            <div class="item-header">
+                                <div id="job1" class="item-title">Student Accountant — BYU Store</div>
+                                <div class="item-meta">Provo, UT · August 2025 – Present</div>
+                            </div>
+                            <ul>
+                                <li>Applied knowledge of financial reporting and accounting principles to prepare journal entries, reconcile accounts, and support accurate month-end closing processes</li>
+                                <li>Utilized Microsoft Excel and accounting software to organize financial data, perform variance analysis, and create detailed reports</li>
+                                <li>Collaborated with peers and supervisors to ensure compliance with GAAP standards</li>
+                            </ul>
+                        </article>
+
+
+                        <article class="item" aria-labelledby="job2">
+                            <div class="item-header">
+                                <div id="job2" class="item-title">Sales Associate — BYU Store</div>
+                                <div class="item-meta">Provo, UT · June 2023 – August 2025</div>
+                            </div>
+                            <ul>
+                                <li>Provided excellent customer service in a high-traffic retail setting</li>
+                                <li>Maintained a clean and organized store environment</li>
+                                <li>Demonstrated reliability, punctuality, and a positive attitude on every shift</li>
+                            </ul>
+                        </article>
+
+
+                        <article class="item" aria-labelledby="job3">
+                            <div class="item-header">
+                                <div id="job3" class="item-title">Substitute Teacher — Provo School District</div>
+                                <div class="item-meta">Provo, UT · August 2024 – May 2025</div>
+                            </div>
+                            <ul>
+                                <li>Led classrooms for various grade levels, ensuring smooth instruction in teachers' absence</li>
+                                <li>Maintained student engagement and followed curriculum guidelines with flexibility</li>
+                                <li>Managed classroom behavior and fostered a positive learning environment</li>
+                            </ul>
+                        </article>
+
+
+                        <article class="item" aria-labelledby="job4">
+                            <div class="item-header">
+                                <div id="job4" class="item-title">Classroom Volunteer — Provo School District</div>
+                                <div class="item-meta">Provo, UT · January 2024 – April 2024</div>
+                            </div>
+                            <ul>
+                                <li>Assisted teachers with classroom preparation and student support</li>
+                                <li>Built meaningful connections with students through consistent engagement</li>
+                                <li>Helped maintain classroom structure and foster a safe learning space</li>
+                            </ul>
+                        </article>
+
+
+                        <article class="item" aria-labelledby="job5">
+                            <div class="item-header">
+                                <div id="job5" class="item-title">Full-Time Missionary — The Church of Jesus Christ of Latter-day Saints</div>
+                                <div class="item-meta">Various Locations · October 2021 – April 2023</div>
+                            </div>
+                            <ul>
+                                <li>Served diverse communities with compassion, commitment, and resilience</li>
+                                <li>Developed strong communication, problem-solving, and time management skills</li>
+                                <li>Coordinated service projects and worked closely with people from different backgrounds</li>
+                            </ul>
+                        </article>
+                    </section>
+
+
+                    <section id="education" class="section" aria-labelledby="education-heading">
+                        <h2 id="education-heading">Education</h2>
+
+
+                        <article class="item" aria-labelledby="edu1">
+                            <div class="item-header">
+                                <div id="edu1" class="item-title">Brigham Young University</div>
+                                <div class="item-meta">Provo, UT · 2023 – Present</div>
+                            </div>
+                        </article>
+
+
+                        <article class="item" aria-labelledby="edu2">
+                            <div class="item-header">
+                                <div id="edu2" class="item-title">Olympic High School</div>
+                                <div class="item-meta">Bremerton, WA · Graduated 2020</div>
+                            </div>
+                        </article>
+                    </section>
+                </main>
+
+
+                <!-- Sidebar -->
+                <aside class="panel sidebar" aria-label="Contact and skills">
+                    <div class="block">
+                        <h2>Contact</h2>
+                        <p class="muted">
+                            Provo, UT • <a href="mailto:annabellemoden@gmail.com">annabellemoden@gmail.com</a> • <span class="muted">360-979-7019</span>
+                        </p>
+                    </div>
+
+
+                    <div class="block">
+                        <h2>Core Skills</h2>
+                        <ul class="skills-list" aria-label="Core skills">
+                            <li>Excellent Attendance & Reliability</li>
+                            <li>CPR & Safety Protocol Knowledge</li>
+                            <li>Clean & Organized Work Habits</li>
+                            <li>High Energy & Engagement</li>
+                            <li>Strong Attention to Detail</li>
+                            <li>Fast Learner & Adaptable</li>
+                            <li>Positive and Professional Demeanor</li>
+                            <li>Effective Team Collaboration</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <div id="page-bottom" style="height: 50px; padding: 20px;"></div>
+    </body>
+</html>
